@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+  </head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+  <!-- import events.js script -->
+  <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
+
+  <body style="margin: 0px; overflow: hidden">
+    <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
+    <a-scene
+      vr-mode-ui="enabled: false"
+      renderer="logarithmicDepthBuffer: true;"
+      loadmodel
+      stats
+    >
+      <a-assets>
+        <a-asset-item
+          id="dance"
+          src="./Assets/dance-352kb-256.glb"
+        ></a-asset-item>
+      </a-assets>
+
+      <a-camera
+        look-controls-enabled="true"
+        wasd-controls-enabled="false"
+        id="camera"
+        position="0 2 0"
+        raycaster="objects: .cantap"
+        cursor="
+                fuse: false;
+                rayOrigin: mouse;"
+      >
+      </a-camera>
+      <a-entity
+        id="anim1"
+        gltf-model="#dance"
+        position="0 0 -10"
+        scale="3 3 3"
+        animation-mixer
+      ></a-entity>
+    </a-scene>
+  </body>
+</html>
