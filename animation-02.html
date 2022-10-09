@@ -9,7 +9,6 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-  <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 
   <!-- import events.js script -->
   <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
@@ -24,10 +23,11 @@
     >
       <a-assets>
         <a-asset-item
-          id="wolf"
-          src="../Assets/Wolf-Blender-2.82a.glb"
+          id="dance"
+          src="./Assets/dance-352kb-256.glb"
         ></a-asset-item>
       </a-assets>
+
       <a-camera
         look-controls-enabled="true"
         wasd-controls-enabled="false"
@@ -40,10 +40,10 @@
       >
       </a-camera>
       <a-entity
-        id="anim2"
-        gltf-model="#wolf"
+        id="anim1"
+        gltf-model="#dance"
         position="0 0 -10"
-        scale="5 5 5"
+        scale="3 3 3"
         animation-mixer
       ></a-entity>
     </a-scene>
