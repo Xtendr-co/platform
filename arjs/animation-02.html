@@ -13,9 +13,24 @@
   <script>
     AFRAME.registerComponent("onclick", {
       init: function() {
-        this.el.addEventListener("click", function(evt) {
-          console.log("I was clicked at: ", evt.detail.intersection.point);
-        });
+        const animation = () => {
+          console.log("clicked");
+          this.el.removeAttribute("animation-mixer");
+          this.el.setAttribute("animation-mixer", {
+            clip: "action",
+            loop: "once",
+          });
+        };
+        this.el.addEventListener("click", animation);
+
+        const afterAnmation = () => {
+          this.el.removeEventListener("animation-finished", afterAnmation);
+          this.el.setAttribute("animation-mixer", {
+            clip: "idle",
+            loop: "repeat"
+          });
+        };
+        this.el.addEventListener("animation-finished", afterAnmation);
       }
     });
   </script>
@@ -53,6 +68,7 @@
         onclick
         class="cantap"
         gltf-model="#dance"
+        animation-mixer="clip: idle; loop: repeat"
         position="0 -25 -80"
         scale="30 30 30"
       ></a-entity>
