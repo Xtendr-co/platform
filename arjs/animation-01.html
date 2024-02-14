@@ -35,8 +35,8 @@
         position="0 8 8"
         raycaster="objects: .cantap"
         cursor="
-                fuse: false;
-                rayOrigin: mouse;"
+          fuse: false;
+          rayOrigin: mouse;"
       >
       </a-camera>
       <a-entity
@@ -44,7 +44,7 @@
         gltf-model="#dance"
         position="0 2 -50"
         scale="2 2 2"
-        animation-mixer
+        animation="property: position; to: 5 2 -50; dur: 2000; easing: easeInOutQuad; loop: true; dir: alternate"
       ></a-entity>
     </a-scene>
   </body>

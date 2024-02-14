@@ -6,9 +6,19 @@
       content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
   </head>
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+  <script>
+    AFRAME.registerComponent("onclick", {
+      init: function() {
+        this.el.addEventListener("click", function(evt) {
+          console.log("I was clicked at: ", evt.detail.intersection.point);
+        });
+      }
+    });
+  </script>
 
   <!-- import events.js script -->
   <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
@@ -17,34 +27,34 @@
     <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
     <a-scene
       vr-mode-ui="enabled: false"
-      renderer="logarithmicDepthBuffer: true;"
-      loadmodel
+      renderer="antialias: true; logarithmicDepthBuffer: true; colorManagement: true; sortObjects: true;"
       stats
     >
       <a-assets>
         <a-asset-item
-          id="cup-low"
-          src="../Assets/cuphead-1mb-1k.glb"
+          id="dance"
+          src="../Assets/singham.glb"
         ></a-asset-item>
       </a-assets>
 
       <a-camera
-        look-controls-enabled="true"
+        look-controls-enabled="false"
         wasd-controls-enabled="false"
         id="camera"
-        position="0 2 0"
+        position="0 8 8"
         raycaster="objects: .cantap"
         cursor="
-                fuse: false;
-                rayOrigin: mouse;"
+          fuse: false;
+          rayOrigin: mouse;"
       >
       </a-camera>
       <a-entity
-        id="anim-1"
-        gltf-model="#cup-low"
-        position="0 0 -10"
-        scale="2.5 2.5 2.5"
-        animation-mixer
+        id="anim1"
+        onclick
+        class="cantap"
+        gltf-model="#dance"
+        position="0 -25 -80"
+        scale="30 30 30"
       ></a-entity>
     </a-scene>
   </body>
