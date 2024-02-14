@@ -35,9 +35,6 @@
     });
   </script>
 
-  <!-- import events.js script -->
-  <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-click-events/events.js"></script>
-
   <body style="margin: 0px; overflow: hidden">
     <!-- we add detectionMode and matrixCodeType to tell AR.js to recognize barcode markers -->
     <a-scene
@@ -53,7 +50,7 @@
       </a-assets>
 
       <a-camera
-        look-controls-enabled="false"
+        look-controls-enabled="true"
         wasd-controls-enabled="false"
         id="camera"
         position="0 8 8"
